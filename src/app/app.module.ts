@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_LOADER } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,7 +24,14 @@ import { NavChildComponent } from './navigation/nav-child/nav-child.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HAMMER_LOADER,
+      useValue: async () => {
+        return import('hammerjs/hammer');
+      },
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

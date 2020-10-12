@@ -1,6 +1,7 @@
 @import '../../shared/_variables';
 :host {
   width: 100%;
+  overflow: hidden;
 }
 .header {
   display: flex;
@@ -80,5 +81,4 @@
   margin-top: -15px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  overflow: hidden;
 }

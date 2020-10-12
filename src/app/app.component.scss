@@ -1,4 +1,8 @@
 @import '../shared/_variables';
+.app-container {
+  width: 100%;
+  overflow: hidden;
+}
 .uilove-container {
   display: flex;
   font-family: $fontNewCicle;
