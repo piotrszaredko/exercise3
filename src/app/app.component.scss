@@ -1,0 +1,8 @@
+@import '../shared/_variables';
+.uilove-container {
+  display: flex;
+  font-family: $fontNewCicle;
+  width: 170%;
+  background: $b;
+  transform: translateX(-70%);
+}

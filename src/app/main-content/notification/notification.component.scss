@@ -1,0 +1,62 @@
+@import '../../../shared/variables';
+.notification {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: $e;
+    width: 100%;
+    color: $f;
+    border-bottom: 2px solid #fb8180;
+    padding: 25px 0;
+    cursor: pointer;
+    &__icon {
+        display: flex;
+        justify-content: center;
+        width: 108px;
+    }
+    &__description {
+        padding-right: 25px;
+        .content {
+            font-family: $fontCalibri;
+            font-size: 20px;
+            font-weight: bold;
+            &__time {
+                margin-right: 30px;
+            }
+        }
+        .name {
+            font-family: $fontNewCicle;
+            font-size: 25px;
+            font-weight: 300;
+        }
+    }
+    &.border--off {
+        border: none;
+    }
+    .actions {
+        display: flex;
+        position: absolute;
+        right: -50%;
+        width: 50%;
+        height: calc(100% + 4px);
+        &__border {
+            width: 10px;
+            background: $g;
+        }
+        &__buttons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: url('../../../assets/bg2.jpg') no-repeat;
+            background-size: cover;
+            width: calc(100% - 10px);
+            .btn {
+                padding: 10px;
+                &--true {
+                    border: 2px solid $e;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}

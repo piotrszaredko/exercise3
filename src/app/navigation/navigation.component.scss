@@ -1,0 +1,74 @@
+@import '../../shared/variables';
+:host {
+    width: 70%;
+}
+.navigation {
+    background: $h;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    &__header {
+        display: flex;
+        align-items: center;
+        height: 78px;
+        padding: 0 20px;
+    }
+    &__profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: $fontNewCicle;
+        .avatar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            padding: 10px;
+            background: $i;
+            &__container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 240px;
+                height: 240px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+        }
+        .name {
+            color: $white;
+            font-size: 29px;
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 23px;
+            margin: 0 0 40px;
+            color: $e;
+        }
+    }
+    &__eject {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 389px) {
+    .navigation {
+        .avatar {
+            width: 150px;
+            height: 150px;
+            &__container {
+                width: 140px;
+                height: 140px;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

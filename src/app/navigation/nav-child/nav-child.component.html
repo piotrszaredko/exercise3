@@ -1,0 +1,13 @@
+<div class="s-separator"></div>
+<div class="item" [class.active]="collapse" (click)="collapse = !collapse">
+    <div class="item__icon">
+        <img [src]="'./assets/icons/' + menuItem.icon + '.png'" [alt]="menuItem.icon"/>
+    </div>
+    <div class="item__name">{{menuItem.name}}</div>
+    <div class="item__counter" *ngIf="menuItem.count !== 0">{{menuItem.count}}</div>
+</div>
+<div class="collapse" *ngIf="collapse">
+    <div class="collapse__item" *ngFor="let child of menuItem.children">
+        {{child}}
+    </div>  
+</div>

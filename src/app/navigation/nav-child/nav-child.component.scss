@@ -1,0 +1,42 @@
+@import '../../../shared/variables';
+.item {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $a;
+    padding: 20px 25px;
+    cursor: pointer;
+    &.active {
+        background: $a;
+        .item__counter {
+            background: $b;
+        }
+    }
+    &:hover {
+        background: $a;
+    }
+    &__icon {
+        width: 80px;
+    }
+    &__name {
+        color: $c;
+        font-weight: 600;
+    }
+    &__counter {
+        text-align: center;
+        min-width: 20px;
+        border-radius: 15px;
+        padding: 5px 10px;
+        margin-left: auto;
+        background: $c;
+        color: $white;
+    }
+}
+.collapse {
+    display: flex;
+    flex-direction: column;
+    background: $a;
+    &__item {
+        padding: 10px 25px 10px 35px;
+        color: $c;
+    }
+}

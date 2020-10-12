@@ -1,0 +1,26 @@
+<article class="notification" [class.border--off]="borderOff" [@delete]="deleted ? 'deleted' : 'void'" (@delete.done)="deleted ? deleteItem.emit() : ''" [@openClose]="isOpen ? 'open' : 'closed'" (click)=toggle()>
+    <div class="notification__icon">
+        <img [src]="'./assets/icons/' + notification.icon + '.png'" [alt]="notification.icon">
+    </div>
+    <div class="notification__description">
+        <div class="content">
+            <span class="content__time">{{notification.time | m2h}}</span>
+            <span class="content__author">by: {{notification.author}}</span>
+        </div>
+        <div class="name">{{notification.name}}</div>
+    </div>
+    <div class="actions">
+        <div class="actions__border"></div>
+        <div class="actions__buttons">
+            <button class="btn">
+                <img src="./assets/icons/eye.png" alt="eye">
+            </button>
+            <button class="btn" [class.btn--true]="notification.like" (click)="changeLikeStatus()">
+                <img src="./assets/icons/heart.png" alt="heart">
+            </button>
+            <button class="btn" (click)="delete()">
+                <img src="./assets/icons/trash.png" alt="trash">
+            </button>
+        </div>
+    </div>
+</article>

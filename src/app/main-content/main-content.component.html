@@ -1,0 +1,39 @@
+<header class="header">
+  <div class="toppanel">
+    <button (click)="collapseMenu()">
+      <img alt="ico-menu" src="assets/icons/menu.png"/>
+    </button>
+    <div class="toppanel__logo">
+      <img class="uilove" alt="ico-uilove" src="assets/icons/uilove.png"/>
+      <span>uilove</span>
+    </div>
+    <button>
+      <img alt="ico-bio" src="assets/icons/bio.png"/>
+    </button>
+  </div>
+  <div class="middlepanel">
+    <h1 class="name">Principal <span class="c-pink">Designer</span></h1>
+    <h2 class="subtitle">who belive in simplicity.</h2>
+    <h3 class="subtitle subtitle--second">love with UI / GUI / UX</h3>
+  </div>
+  <div class="bottompanel">
+    <div class="icon">
+      <img alt="ico-dribbble" src="assets/icons/dribbble.png"/>
+      <div class="icon__counter">21</div>
+    </div>
+    <div class="icon">
+      <img alt="ico-forrst" src="assets/icons/forrst.png"/>
+    </div>
+    <div class="icon">
+      <img alt="ico-be" src="assets/icons/be.png"/>
+    </div>
+  </div>
+</header>
+<main class="main">
+  <app-notification *ngFor="let notification of notifications; let notificationIndex = index" 
+                    [notification]="notification" 
+                    [borderOff]="notificationIndex + 1 === notifications.length"
+                    (likeStatus)="like(notificationIndex, $event)"
+                    (deleteItem)="delete(notificationIndex)">
+                  </app-notification>
+</main>
