@@ -12,6 +12,5 @@ export class NavigationService {
 
   changeMenuStatus(): void {
     this._menuStatus.next(!this._menuStatus.getValue())
-    console.log(this._menuStatus.getValue())
   }
 }

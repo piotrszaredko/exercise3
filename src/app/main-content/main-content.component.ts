@@ -28,7 +28,6 @@ export class MainContentComponent implements OnInit {
   }
 
   like(index: number, notification: Notification): void {
-    console.log(1);
     this._appService.update(index, notification)
   }
 
