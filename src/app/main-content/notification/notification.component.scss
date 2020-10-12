@@ -8,6 +8,7 @@
     color: $f;
     border-bottom: 2px solid #fb8180;
     padding: 25px 0;
+    touch-action: pan-y !important;
     cursor: pointer;
     &__icon {
         display: flex;

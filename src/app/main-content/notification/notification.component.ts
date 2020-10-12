@@ -88,6 +88,10 @@ export class NotificationComponent implements OnInit {
     this.isOpen = !this.isOpen
   }
 
+  swipeHandler(value: boolean): void {
+    this.isOpen = value
+  }
+
   isSmall(): string {
     if (this.isOpen && this.windowWidth < 400) {
       return 'mobileOpen'

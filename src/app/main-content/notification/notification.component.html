@@ -1,4 +1,10 @@
-<article class="notification" [class.border--off]="borderOff" [@delete]="deleted ? 'deleted' : 'void'" (@delete.done)="deleted ? deleteItem.emit() : ''" [@openClose]="isSmall()" (click)="toggle()" (swipeleft)="toggle()" (swiperight)="toggle()">
+<article class="notification" [class.border--off]="borderOff" 
+                                [@delete]="deleted ? 'deleted' : 'void'" 
+                                (@delete.done)="deleted ? deleteItem.emit() : ''" 
+                                [@openClose]="isSmall()" 
+                                (click)="toggle()" 
+                                (swipeleft)="swipeHandler(true)" 
+                                (swiperight)="swipeHandler(false)">
     <div class="notification__icon">
         <img [src]="'./assets/icons/' + notification.icon + '.png'" [alt]="notification.icon">
     </div>
