@@ -1,4 +1,4 @@
-<article class="notification" [class.border--off]="borderOff" [@delete]="deleted ? 'deleted' : 'void'" (@delete.done)="deleted ? deleteItem.emit() : ''" [@openClose]="isOpen ? 'open' : 'closed'" (click)=toggle()>
+<article class="notification" [class.border--off]="borderOff" [@delete]="deleted ? 'deleted' : 'void'" (@delete.done)="deleted ? deleteItem.emit() : ''" [@openClose]="isSmall()" (click)=toggle()>
     <div class="notification__icon">
         <img [src]="'./assets/icons/' + notification.icon + '.png'" [alt]="notification.icon">
     </div>
@@ -9,7 +9,7 @@
         </div>
         <div class="name">{{notification.name}}</div>
     </div>
-    <div class="actions">
+    <div class="actions" [class.big]="sizeActions">
         <div class="actions__border"></div>
         <div class="actions__buttons">
             <button class="btn">

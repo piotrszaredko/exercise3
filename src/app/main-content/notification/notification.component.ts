@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { Notification } from 'src/models/Notification';
 import {
   trigger,
@@ -16,6 +16,9 @@ import {
     trigger('openClose', [
       state('open', style({
         transform: 'translateX(-50%)'
+      })),
+      state('mobileOpen', style({
+        transform: 'translateX(-90%)'
       })),
       state('closed', style({
         transform: 'translateX(0)'
@@ -50,10 +53,26 @@ export class NotificationComponent implements OnInit {
 
   isOpen: boolean = false
   deleted: boolean = false
+  windowWidth: number
+  sizeActions: string
 
-  constructor() { }
+  constructor(
+    private _renderer: Renderer2
+  ) { }
 
   ngOnInit() {
+    this._renderer.listen('window', 'load', (event: Event) => {
+      this.windowWidth = (<any>event.currentTarget).innerWidth
+      this.setActionsSize()
+    })
+    this._renderer.listen('window', 'resize', (event: Event) => {
+      this.windowWidth = (<any>event.currentTarget).innerWidth
+      this.setActionsSize()
+    })
+  }
+
+  setActionsSize(): void {
+    this.windowWidth < 400 ? this.sizeActions = 'big' : this.sizeActions = ''
   }
 
   changeLikeStatus(): void {
@@ -63,11 +82,20 @@ export class NotificationComponent implements OnInit {
 
   delete(): void {
     this.deleted = !this.deleted
-    // this.deleteIndex.emit()
   }
 
   toggle() {
     this.isOpen = !this.isOpen
+  }
+
+  isSmall(): string {
+    if (this.isOpen && this.windowWidth < 400) {
+      return 'mobileOpen'
+    } if (this.isOpen && this.windowWidth >= 400) {
+      return 'open'
+    } else {
+      return 'closed'
+    }
   }
 
 }

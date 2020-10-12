@@ -39,6 +39,10 @@
         right: -50%;
         width: 50%;
         height: calc(100% + 4px);
+        &.big {
+            right: -90%;
+            width: 90%;
+        }
         &__border {
             width: 10px;
             background: $g;
